@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "公众号草稿导出与导入",
+  "version": "1.0.2",
+  "description": "在微信公众号草稿编辑页一键导出正文 HTML（图片内嵌），也可粘贴 HTML 插入或替换草稿正文。",
+  "permissions": [
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://mp.weixin.qq.com/*",
+    "https://mmbiz.qpic.cn/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mp.weixin.qq.com/*"
+      ],
+      "js": [
+        "zip.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}
